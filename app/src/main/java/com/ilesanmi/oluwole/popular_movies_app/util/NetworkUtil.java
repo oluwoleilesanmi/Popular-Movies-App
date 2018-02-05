@@ -15,30 +15,31 @@ import java.util.Scanner;
  */
 
 public class NetworkUtil {
-    // https://api.themoviedb.org/3/movie/
 
     private static final String TAG = NetworkUtil.class.getSimpleName();
 
     private static final String POPULAR_MOVIES_URL =
-            "http://api.themoviedb.org/3/movie/popular";
+            "https://api.themoviedb.org/3/movie/popular";
 
     private static final String TOP_RATED_MOVIES_URL =
-            "http://api.themoviedb.org/3/movie/top_rated";
+            "https://api.themoviedb.org/3/movie/top_rated";
 
 
 
 
-    private static final String api_key = "api_key";
-
-    private static final String api_key_value = "92f2c28bdc4bc56c6d4c34d7c8012c9b";
+    private static final String api_key_parameter = "api_key";
+    private static final String my_moviesdb_api_key = "92f2c28bdc4bc56c6d4c34d7c8012c9b";
 
 
     private static URL url = null;
 
-    public static URL buildPopularMoviesUrl(String key) throws MalformedURLException{
+
+
+
+    public static URL buildPopularMoviesUrl() throws MalformedURLException{
 
         Uri builtUri = Uri.parse(POPULAR_MOVIES_URL).buildUpon()
-                .appendQueryParameter(api_key, api_key_value)
+                .appendQueryParameter(api_key_parameter, my_moviesdb_api_key)
                 .build();
 
         url = new URL(builtUri.toString());
@@ -48,10 +49,10 @@ public class NetworkUtil {
         return url;
     }
 
-    public static URL buildTopRatedMovieUrl(String key) throws MalformedURLException {
+    public static URL buildTopRatedMoviesUrl() throws MalformedURLException{
 
         Uri builtUri = Uri.parse(TOP_RATED_MOVIES_URL).buildUpon()
-                .appendQueryParameter(api_key, api_key_value)
+                .appendQueryParameter(api_key_parameter, my_moviesdb_api_key)
                 .build();
 
         url = new URL(builtUri.toString());
