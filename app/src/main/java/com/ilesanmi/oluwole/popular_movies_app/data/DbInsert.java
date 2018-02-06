@@ -2,6 +2,7 @@ package com.ilesanmi.oluwole.popular_movies_app.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.net.Uri;
 
 
 import com.ilesanmi.oluwole.popular_movies_app.MyParcelable;
@@ -40,8 +41,7 @@ public class DbInsert {
             contentValues.put(MoviesContract.MoviesEntry.COLUMN_RELEASE_DATE, myParcelable.getReleaseDate());
             contentValues.put(MoviesContract.MoviesEntry.COLUMN_MOVIES_FLAG,  myParcelable.getFlag());
 
-
-        }
+            context.getContentResolver().insert(MoviesContract.MoviesEntry.CONTENT_URI,contentValues);        }
 
 
 
