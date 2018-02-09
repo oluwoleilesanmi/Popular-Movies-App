@@ -14,7 +14,7 @@ import android.support.annotation.Nullable;
 import static com.ilesanmi.oluwole.popular_movies_app.data.MoviesContract.MoviesEntry.TABLE_NAME;
 
 /**
- * Created by abayomi on 30/01/2018.
+ * Created by abayomi on 01/02/2018.
  */
 
 public class MoviesContentProvider extends ContentProvider {
@@ -37,14 +37,8 @@ public class MoviesContentProvider extends ContentProvider {
      */
     public static UriMatcher buildUriMatcher() {
 
-        // Initialize a UriMatcher with no matches by passing in NO_MATCH to the constructor
         UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
-        /*
-          All paths added to the UriMatcher have a corresponding int.
-          For each kind of uri you may want to access, add the corresponding match with addURI.
-          The two calls below add matches for the task directory and a single item by ID.
-         */
         uriMatcher.addURI(MoviesContract.AUTHORITY, MoviesContract.PATH_MOVIES, TASKS);
         uriMatcher.addURI(MoviesContract.AUTHORITY, MoviesContract.PATH_MOVIES + "/#", TASK_WITH_ID);
 

@@ -1,18 +1,15 @@
 package com.ilesanmi.oluwole.popular_movies_app;
 
+import android.database.Cursor;
+import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
-
 /**
- * Created by abayomi on 25/01/2018.
+ * Created by abayomi on 1/02/2018.
  */
 
-
-
 public class MyParcelable implements Parcelable {
-
 
     private String title;
     private String posterPath;
@@ -20,37 +17,9 @@ public class MyParcelable implements Parcelable {
     private String overview;
     private String releaseDate;
     private Integer flag;
+    private Bundle bundle = new Bundle();
 
     public MyParcelable(){}
-
-    private MyParcelable(Parcel in) {
-        title = in.readString();
-        posterPath = in.readString();
-        if (in.readByte() == 0) {
-            voteAverage = null;
-        } else {
-            voteAverage = in.readDouble();
-        }
-        overview = in.readString();
-        releaseDate = in.readString();
-        if (in.readByte() == 0) {
-            flag = null;
-        } else {
-            flag = in.readInt();
-        }
-    }
-
-    public static final Creator<MyParcelable> CREATOR = new Creator<MyParcelable>() {
-        @Override
-        public MyParcelable createFromParcel(Parcel in) {
-            return new MyParcelable(in);
-        }
-
-        @Override
-        public MyParcelable[] newArray(int size) {
-            return new MyParcelable[size];
-        }
-    };
 
     public String getTitle() {
         return title;
@@ -100,6 +69,13 @@ public class MyParcelable implements Parcelable {
         this.flag = flag;
     }
 
+    public Bundle getBundle(){return bundle;}
+
+
+
+    private MyParcelable(Parcel in) {
+        bundle = in.readBundle();
+    }
 
     @Override
     public int describeContents() {
@@ -107,23 +83,28 @@ public class MyParcelable implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(title);
-        dest.writeString(posterPath);
-        if (voteAverage == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(voteAverage);
+    public void writeToParcel(Parcel dest, int flags) {dest.writeBundle(bundle);}
+
+    public static final Creator<MyParcelable> CREATOR = new Creator<MyParcelable>() {
+        @Override
+        public MyParcelable createFromParcel(Parcel in) {
+            return new MyParcelable(in);
         }
-        dest.writeString(overview);
-        dest.writeString(releaseDate);
-        if (flag == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(flag);
+
+        @Override
+        public MyParcelable[] newArray(int size) {
+            return new MyParcelable[size];
         }
+    };
+    public void convertCursor(Cursor cursor){
+        //cursor starts from position -1 move it by one position
+        cursor.moveToNext();
+
+        bundle.putString("title",cursor.getString(cursor.getColumnIndex("title")));
+        bundle.putString("movie_poster",cursor.getString(cursor.getColumnIndex("movie_poster")));
+        bundle.putDouble("vote_average",cursor.getDouble(cursor.getColumnIndex("vote_average")));
+        bundle.putString("plot_synopsis",cursor.getString(cursor.getColumnIndex("plot_synopsis")));
+        bundle.putString("release_date",cursor.getString(cursor.getColumnIndex("release_date")));
     }
 }
 

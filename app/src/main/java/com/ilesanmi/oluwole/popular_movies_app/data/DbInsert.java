@@ -2,7 +2,6 @@ package com.ilesanmi.oluwole.popular_movies_app.data;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.net.Uri;
 
 
 import com.ilesanmi.oluwole.popular_movies_app.MyParcelable;
@@ -12,7 +11,7 @@ import com.ilesanmi.oluwole.popular_movies_app.util.JsonUtil;
 import org.json.JSONException;
 
 /**
- * Created by abayomi on 31/01/2018.
+ * Created by abayomi on 01/02/2018.
  */
 
 public class DbInsert {
@@ -43,10 +42,6 @@ public class DbInsert {
 
             context.getContentResolver().insert(MoviesContract.MoviesEntry.CONTENT_URI,contentValues);        }
 
-
-
     }
-
-
 
 }
