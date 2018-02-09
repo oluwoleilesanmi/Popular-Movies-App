@@ -12,6 +12,7 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.util.Objects;
 
 /**
  * Created by abayomi on 01/02/2018.
@@ -20,7 +21,7 @@ import java.lang.ref.WeakReference;
 public class MyAsyncTask extends AsyncTask<Void, Void, Void> {
     private String jsonReturnedForPopularMovies = "";
     private String jsonReturnedForTopRatedMovies = "";
-    private WeakReference<Context> contextReference ;
+    private final WeakReference<Context> contextReference ;
 
 
     //WeakReference class is used to prevent potential memory leaks
@@ -39,10 +40,9 @@ public class MyAsyncTask extends AsyncTask<Void, Void, Void> {
             }
             try {
                 //if internet query returned nothing then do not update the database
-                if(jsonReturnedForPopularMovies != "" && jsonReturnedForTopRatedMovies != "") {
-                    new DbInsert(this.contextReference.get());
-                    DbInsert.insertIntoDatabase(jsonReturnedForPopularMovies, MoviesFlagUtil.flagForPopularMovies);
-                    DbInsert.insertIntoDatabase(jsonReturnedForTopRatedMovies, MoviesFlagUtil.flagForTopRatedMovies);
+                if(!Objects.equals(jsonReturnedForPopularMovies, "") && !Objects.equals(jsonReturnedForTopRatedMovies, "")) {
+                    DbInsert.insertIntoDatabase(jsonReturnedForPopularMovies, MoviesFlagUtil.flagForPopularMovies,this.contextReference.get());
+                    DbInsert.insertIntoDatabase(jsonReturnedForTopRatedMovies, MoviesFlagUtil.flagForTopRatedMovies,this.contextReference.get());
                 }
                 }catch (JSONException e) {
                     e.printStackTrace();

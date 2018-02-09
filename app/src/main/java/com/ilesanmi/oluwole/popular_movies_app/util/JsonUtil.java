@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 public class JsonUtil {
 
-    private static MyParcelable sMyParcelable = new MyParcelable();
+    private static final MyParcelable sMyParcelable = new MyParcelable();
     private static JSONObject jsonObject;
     private static JSONArray jsonArray;
     private static Integer  jsonArrayIndex;
@@ -39,37 +39,37 @@ public class JsonUtil {
         return sMyParcelable;
     }
 
-    public static void setJsonObject(JSONArray array) throws JSONException {
+    private static void setJsonObject(JSONArray array) throws JSONException {
         jsonObject = jsonArray.getJSONObject(jsonArrayIndex);
     }
 
-    public static void setJsonArray(JSONObject obj) throws JSONException {
+    private static void setJsonArray(JSONObject obj) throws JSONException {
         jsonArray = jsonObject.getJSONArray("results");
     }
 
 
-    public static void deserializeTitle() throws JSONException {
+    private static void deserializeTitle() throws JSONException {
         sMyParcelable.setTitle(jsonObject.getString("title"));
     }
 
-    public static void deserializePosterPath() throws JSONException {
+    private static void deserializePosterPath() throws JSONException {
         sMyParcelable.setPosterPath(jsonObject.getString("poster_path"));
     }
 
-    public static void deserializeVoteAverage() throws JSONException {
+    private static void deserializeVoteAverage() throws JSONException {
         sMyParcelable.setVoteAverage(jsonObject.getDouble("vote_average"));
     }
 
-    public static void deserializeOverview() throws JSONException {
+    private static void deserializeOverview() throws JSONException {
         sMyParcelable.setOverview(jsonObject.getString("overview"));
     }
 
-    public static void deserializeReleaseDate() throws JSONException {
+    private static void deserializeReleaseDate() throws JSONException {
         sMyParcelable.setReleaseDate(jsonObject.getString("release_date"));
 
     }
 
-    public static void deserializeFlag(int flag) {
+    private static void deserializeFlag(int flag) {
         sMyParcelable.setFlag(flag);
 
     }

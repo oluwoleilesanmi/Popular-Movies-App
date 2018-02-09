@@ -11,7 +11,7 @@ public class MoviesContract {
 
     public static final String AUTHORITY = "com.ilesanmi.oluwole.popular_movies_app";
 
-    public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);
+    private static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 
     public static final String PATH_MOVIES = "movies";
 

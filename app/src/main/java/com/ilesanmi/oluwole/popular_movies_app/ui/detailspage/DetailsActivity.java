@@ -37,12 +37,15 @@ public class DetailsActivity extends AppCompatActivity {
         if (intentFromMoviesActivity == null) {
             closeOnError();
         }
-
-        osIntentBundle = intentFromMoviesActivity.getExtras();
-        parcelableFromMainActivity = osIntentBundle.getParcelable("parcelableToSend");
-        dataBundle = parcelableFromMainActivity.getBundle();
-
-
+        if (intentFromMoviesActivity != null) {
+            osIntentBundle = intentFromMoviesActivity.getExtras();
+        }
+        if (osIntentBundle != null) {
+            parcelableFromMainActivity = osIntentBundle.getParcelable("parcelableToSend");
+        }
+        if (parcelableFromMainActivity != null) {
+            dataBundle = parcelableFromMainActivity.getBundle();
+        }
 
 
         String imageID = dataBundle.getString("movie_poster");

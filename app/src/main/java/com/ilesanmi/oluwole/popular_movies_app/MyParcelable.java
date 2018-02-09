@@ -74,7 +74,7 @@ public class MyParcelable implements Parcelable {
 
 
     private MyParcelable(Parcel in) {
-        bundle = in.readBundle();
+        bundle = in.readBundle(getClass().getClassLoader());
     }
 
     @Override

@@ -28,12 +28,10 @@ import com.ilesanmi.oluwole.popular_movies_app.util.DbUtil;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    private static final String str = MainActivity.class.getSimpleName();
-
     private GridView mGridView;
     private MoviesAdapter moviesAdapter;
-    private Bundle bundle = new Bundle();
-    private MyParcelable myParcelable = new MyParcelable();
+    private final Bundle bundle = new Bundle();
+    private final MyParcelable myParcelable = new MyParcelable();
 
     private static final int POPULAR_IMAGES_LOADER = 1;
     private static final int TOP_RATED_IMAGES_LOADER = 2;

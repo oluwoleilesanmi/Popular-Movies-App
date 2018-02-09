@@ -16,19 +16,13 @@ import org.json.JSONException;
 
 public class DbInsert {
 
-    private static Context context;
-    private static MyParcelable myParcelable;
+
     private static final int numberOfJsonObjInMoviesdbJson = 20;
 
-
-    public DbInsert(Context context){
-        this.context = context;
-    }
-
-    public static void insertIntoDatabase(String str,int databaseMoviesFlagToSeperateTopRatedFromPopular) throws JSONException {
+    public static void insertIntoDatabase(String str,int databaseMoviesFlagToSeparateTopRatedFromPopular,Context context) throws JSONException {
 
         for(int i = 0; i < numberOfJsonObjInMoviesdbJson; i++){
-            myParcelable =  JsonUtil.parseMoviesToParcelableObject(str, i,databaseMoviesFlagToSeperateTopRatedFromPopular);
+            MyParcelable myParcelable =  JsonUtil.parseMoviesToParcelableObject(str, i,databaseMoviesFlagToSeparateTopRatedFromPopular);
 
 
             ContentValues contentValues = new ContentValues();

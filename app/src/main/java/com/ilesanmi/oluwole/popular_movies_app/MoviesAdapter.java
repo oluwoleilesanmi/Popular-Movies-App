@@ -17,8 +17,8 @@ import com.squareup.picasso.Picasso;
  */
 
 public class MoviesAdapter extends BaseAdapter {
-    private Context context;
-    private Cursor cursor;
+    private final Context context;
+    private final Cursor cursor;
 
     public MoviesAdapter(Context context, Cursor cursor){
         this.context = context;

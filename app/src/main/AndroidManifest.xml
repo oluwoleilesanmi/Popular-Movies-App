@@ -20,7 +20,7 @@
         </activity>
 
         <provider android:name = "com.ilesanmi.oluwole.popular_movies_app.data.MoviesContentProvider"
-                      android:authorities = "com.ilesanmi.oluwole.popular_movies_app"/>
+                      android:authorities = "com.ilesanmi.oluwole.popular_movies_app" android:exported="false"/>
 
         <activity android:name=".ui.detailspage.DetailsActivity" android:parentActivityName=".ui.homepage.MainActivity">
         </activity>
