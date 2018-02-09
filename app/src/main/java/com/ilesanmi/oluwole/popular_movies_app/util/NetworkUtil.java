@@ -28,7 +28,7 @@ public class NetworkUtil {
 
 
     private static final String api_key_parameter = "api_key";
-    private static final String my_moviesdb_api_key = "92f2c28bdc4bc56c6d4c34d7c8012c9b";
+    private static final String my_moviesdb_api_key = "";
 
 
     private static URL url = null;

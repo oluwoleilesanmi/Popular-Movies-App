@@ -1,9 +1,5 @@
 package com.ilesanmi.oluwole.popular_movies_app.util;
 
-/**
- * Created by abayomi on 31/01/2018.
- */
-
 
 import com.ilesanmi.oluwole.popular_movies_app.MyParcelable;
 
@@ -73,7 +69,7 @@ public class JsonUtil {
 
     }
 
-    public static void deserializeFlag(int flag) throws JSONException {
+    public static void deserializeFlag(int flag) {
         sMyParcelable.setFlag(flag);
 
     }
