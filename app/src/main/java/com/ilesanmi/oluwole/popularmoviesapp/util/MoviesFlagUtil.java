@@ -1,4 +1,4 @@
-package com.ilesanmi.oluwole.popular_movies_app.util;
+package com.ilesanmi.oluwole.popularmoviesapp.util;
 
 /**
  * Created by abayomi on 05/02/2018.

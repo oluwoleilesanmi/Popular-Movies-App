@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ilesanmi.oluwole.popular_movies_app.ui.homepage.MainActivity">
+    tools:context="com.ilesanmi.oluwole.popularmoviesapp.ui.homepage.MainActivity">
 
      <GridView
         android:id="@+id/gridView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:columnWidth="100dp"
-        android:numColumns="2"
+        android:columnWidth="150dp"
+        android:numColumns="auto_fit"
         android:verticalSpacing="6dp"
         android:horizontalSpacing="6dp"
         android:stretchMode="columnWidth"

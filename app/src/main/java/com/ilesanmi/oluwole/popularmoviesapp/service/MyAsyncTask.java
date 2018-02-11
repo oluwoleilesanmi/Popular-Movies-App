@@ -1,11 +1,11 @@
-package com.ilesanmi.oluwole.popular_movies_app.service;
+package com.ilesanmi.oluwole.popularmoviesapp.service;
 
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.ilesanmi.oluwole.popular_movies_app.data.DbInsert;
-import com.ilesanmi.oluwole.popular_movies_app.util.MoviesFlagUtil;
-import com.ilesanmi.oluwole.popular_movies_app.util.NetworkUtil;
+import com.ilesanmi.oluwole.popularmoviesapp.data.DbInsert;
+import com.ilesanmi.oluwole.popularmoviesapp.util.MoviesFlagUtil;
+import com.ilesanmi.oluwole.popularmoviesapp.util.NetworkUtil;
 
 
 import org.json.JSONException;

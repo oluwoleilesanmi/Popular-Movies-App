@@ -1,7 +1,7 @@
-package com.ilesanmi.oluwole.popular_movies_app.util;
+package com.ilesanmi.oluwole.popularmoviesapp.util;
 
 
-import com.ilesanmi.oluwole.popular_movies_app.MyParcelable;
+import com.ilesanmi.oluwole.popularmoviesapp.MyParcelable;
 
 import org.json.JSONArray;
 import org.json.JSONException;

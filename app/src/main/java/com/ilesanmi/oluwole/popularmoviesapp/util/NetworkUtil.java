@@ -1,7 +1,9 @@
-package com.ilesanmi.oluwole.popular_movies_app.util;
+package com.ilesanmi.oluwole.popularmoviesapp.util;
 
 import android.net.Uri;
 import android.util.Log;
+
+import com.ilesanmi.oluwole.popularmoviesapp.BuildConfig;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,7 +30,8 @@ public class NetworkUtil {
 
 
     private static final String api_key_parameter = "api_key";
-    private static final String my_moviesdb_api_key = "";
+    private static final String my_moviesdb_api_key = BuildConfig.API_KEY;
+    ;
 
 
     private static URL url = null;

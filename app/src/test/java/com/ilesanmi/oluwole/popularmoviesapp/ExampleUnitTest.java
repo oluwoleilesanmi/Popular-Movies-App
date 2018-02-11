@@ -1,4 +1,4 @@
-package com.ilesanmi.oluwole.popular_movies_app;
+package com.ilesanmi.oluwole.popularmoviesapp;
 
 import org.junit.Test;
 

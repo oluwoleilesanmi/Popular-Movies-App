@@ -1,4 +1,4 @@
-package com.ilesanmi.oluwole.popular_movies_app.data;
+package com.ilesanmi.oluwole.popularmoviesapp.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

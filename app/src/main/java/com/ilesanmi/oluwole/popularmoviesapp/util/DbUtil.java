@@ -1,10 +1,10 @@
-package com.ilesanmi.oluwole.popular_movies_app.util;
+package com.ilesanmi.oluwole.popularmoviesapp.util;
 
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 
-import com.ilesanmi.oluwole.popular_movies_app.data.MoviesContract;
+import com.ilesanmi.oluwole.popularmoviesapp.data.MoviesContract;
 
 /**
  * Created by abayomi on 07/02/2018.

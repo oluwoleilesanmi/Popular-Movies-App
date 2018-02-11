@@ -1,4 +1,4 @@
-package com.ilesanmi.oluwole.popular_movies_app.ui.detailspage;
+package com.ilesanmi.oluwole.popularmoviesapp.ui.detailspage;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ilesanmi.oluwole.popular_movies_app.MyParcelable;
-import com.ilesanmi.oluwole.popular_movies_app.R;
+import com.ilesanmi.oluwole.popularmoviesapp.MyParcelable;
+import com.ilesanmi.oluwole.popularmoviesapp.R;
 import com.squareup.picasso.Picasso;
 
 public class DetailsActivity extends AppCompatActivity {

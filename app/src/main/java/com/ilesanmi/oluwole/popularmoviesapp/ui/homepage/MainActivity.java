@@ -1,10 +1,13 @@
-package com.ilesanmi.oluwole.popular_movies_app.ui.homepage;
+package com.ilesanmi.oluwole.popularmoviesapp.ui.homepage;
 
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,13 +18,13 @@ import android.widget.GridView;
 
 
 
-import com.ilesanmi.oluwole.popular_movies_app.MoviesAdapter;
-import com.ilesanmi.oluwole.popular_movies_app.MyParcelable;
-import com.ilesanmi.oluwole.popular_movies_app.R;
-import com.ilesanmi.oluwole.popular_movies_app.data.MoviesContract;
-import com.ilesanmi.oluwole.popular_movies_app.service.MyAsyncTask;
-import com.ilesanmi.oluwole.popular_movies_app.ui.detailspage.DetailsActivity;
-import com.ilesanmi.oluwole.popular_movies_app.util.DbUtil;
+import com.ilesanmi.oluwole.popularmoviesapp.MoviesAdapter;
+import com.ilesanmi.oluwole.popularmoviesapp.MyParcelable;
+import com.ilesanmi.oluwole.popularmoviesapp.R;
+import com.ilesanmi.oluwole.popularmoviesapp.data.MoviesContract;
+import com.ilesanmi.oluwole.popularmoviesapp.service.MyAsyncTask;
+import com.ilesanmi.oluwole.popularmoviesapp.ui.detailspage.DetailsActivity;
+import com.ilesanmi.oluwole.popularmoviesapp.util.DbUtil;
 
 
 
@@ -39,17 +42,26 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         mGridView = findViewById(R.id.gridView);
 
         //is database populated with data form moviesdb
         if (DbUtil.isDbEmpty(this)){
-            MyAsyncTask myAsyncTask = new MyAsyncTask(this);
-            myAsyncTask.execute();
+
+            //is this phone connected to internet
+           // if(isConnectedToInternet()) {
+               MyAsyncTask myAsyncTask = new MyAsyncTask(this);
+               myAsyncTask.execute();
+           //}
+
         }
 
 
@@ -160,6 +172,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return super.onOptionsItemSelected(item);
     }
 
+    public boolean isConnectedToInternet(){
+        ConnectivityManager cm =
+                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+    }
 
 
 }

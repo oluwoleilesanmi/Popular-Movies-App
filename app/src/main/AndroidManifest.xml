@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.ilesanmi.oluwole.popular_movies_app"
+<manifest package="com.ilesanmi.oluwole.popularmoviesapp"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -11,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.homepage.MainActivity">
+        <activity android:name="com.ilesanmi.oluwole.popularmoviesapp.ui.homepage.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -19,10 +20,10 @@
             </intent-filter>
         </activity>
 
-        <provider android:name = "com.ilesanmi.oluwole.popular_movies_app.data.MoviesContentProvider"
-                      android:authorities = "com.ilesanmi.oluwole.popular_movies_app" android:exported="false"/>
+        <provider android:name = "com.ilesanmi.oluwole.popularmoviesapp.data.MoviesContentProvider"
+                  android:authorities = "com.ilesanmi.oluwole.popularmoviesapp" android:exported="false"/>
 
-        <activity android:name=".ui.detailspage.DetailsActivity" android:parentActivityName=".ui.homepage.MainActivity">
+        <activity android:name="com.ilesanmi.oluwole.popularmoviesapp.ui.detailspage.DetailsActivity" android:parentActivityName="com.ilesanmi.oluwole.popularmoviesapp.ui.homepage.MainActivity">
         </activity>
     </application>
 

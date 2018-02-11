@@ -1,4 +1,4 @@
-package com.ilesanmi.oluwole.popular_movies_app.data;
+package com.ilesanmi.oluwole.popularmoviesapp.data;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -11,7 +11,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import static com.ilesanmi.oluwole.popular_movies_app.data.MoviesContract.MoviesEntry.TABLE_NAME;
+import static com.ilesanmi.oluwole.popularmoviesapp.data.MoviesContract.MoviesEntry.TABLE_NAME;
 
 /**
  * Created by abayomi on 01/02/2018.
