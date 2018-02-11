@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (DbUtil.isDbEmpty(this)){
 
             //is this phone connected to internet
-           // if(isConnectedToInternet()) {
+            if(isConnectedToInternet()) {
                MyAsyncTask myAsyncTask = new MyAsyncTask(this);
                myAsyncTask.execute();
-           //}
+            }
 
         }
 
