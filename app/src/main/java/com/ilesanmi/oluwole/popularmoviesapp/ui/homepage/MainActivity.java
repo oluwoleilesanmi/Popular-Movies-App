@@ -19,10 +19,10 @@ import android.widget.GridView;
 
 
 import com.ilesanmi.oluwole.popularmoviesapp.MoviesAdapter;
-import com.ilesanmi.oluwole.popularmoviesapp.MyParcelable;
+import com.ilesanmi.oluwole.popularmoviesapp.MoviesParcelable;
 import com.ilesanmi.oluwole.popularmoviesapp.R;
 import com.ilesanmi.oluwole.popularmoviesapp.data.MoviesContract;
-import com.ilesanmi.oluwole.popularmoviesapp.service.MyAsyncTask;
+import com.ilesanmi.oluwole.popularmoviesapp.asynctask.MoviesAsyncTask;
 import com.ilesanmi.oluwole.popularmoviesapp.ui.detailspage.DetailsActivity;
 import com.ilesanmi.oluwole.popularmoviesapp.util.DbUtil;
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private GridView mGridView;
     private MoviesAdapter moviesAdapter;
     private final Bundle bundle = new Bundle();
-    private final MyParcelable myParcelable = new MyParcelable();
+    private final MoviesParcelable mMoviesParcelable = new MoviesParcelable();
 
     private static final int POPULAR_IMAGES_LOADER = 1;
     private static final int TOP_RATED_IMAGES_LOADER = 2;
@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
             //is this phone connected to internet
             if(isConnectedToInternet()) {
-               MyAsyncTask myAsyncTask = new MyAsyncTask(this);
-               myAsyncTask.execute();
+               MoviesAsyncTask moviesAsyncTask = new MoviesAsyncTask(this);
+               moviesAsyncTask.execute();
             }
 
         }
@@ -137,10 +137,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 break;
 
             case USER_SELECTED_MOVIE:
-                myParcelable.convertCursor(data);
+                mMoviesParcelable.convertCursor(data);
 
                 Intent intent = new Intent(this, DetailsActivity.class);
-                intent.putExtra("parcelableToSend", myParcelable);
+                intent.putExtra("parcelableToSend", mMoviesParcelable);
                 startActivity(intent);
                 break;
         }

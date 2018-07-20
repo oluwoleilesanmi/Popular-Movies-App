@@ -27,12 +27,8 @@ public class NetworkUtil {
             "https://api.themoviedb.org/3/movie/top_rated";
 
 
-
-
-    private static final String api_key_parameter = "api_key";
-    private static final String my_moviesdb_api_key = BuildConfig.API_KEY;
-    ;
-
+    private static final String API_KEY_PARAMETER = "api_key";
+    private static final String MOVIES_API_KEY = BuildConfig.API_KEY;
 
     private static URL url = null;
 
@@ -42,11 +38,9 @@ public class NetworkUtil {
     public static URL buildPopularMoviesUrl() throws MalformedURLException{
 
         Uri builtUri = Uri.parse(POPULAR_MOVIES_URL).buildUpon()
-                .appendQueryParameter(api_key_parameter, my_moviesdb_api_key)
+                .appendQueryParameter(API_KEY_PARAMETER, MOVIES_API_KEY)
                 .build();
-
         url = new URL(builtUri.toString());
-
         Log.v(TAG, "Built URI " + url);
 
         return url;
@@ -55,7 +49,7 @@ public class NetworkUtil {
     public static URL buildTopRatedMoviesUrl() throws MalformedURLException{
 
         Uri builtUri = Uri.parse(TOP_RATED_MOVIES_URL).buildUpon()
-                .appendQueryParameter(api_key_parameter, my_moviesdb_api_key)
+                .appendQueryParameter(API_KEY_PARAMETER, MOVIES_API_KEY)
                 .build();
 
         url = new URL(builtUri.toString());
@@ -65,7 +59,7 @@ public class NetworkUtil {
         return url;
     }
 
-    public static String getResponseFromHttpUrl(URL url) throws IOException {
+    public static String getStringFromRemoteServer(URL url) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try {
             InputStream in = urlConnection.getInputStream();

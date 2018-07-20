@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ilesanmi.oluwole.popularmoviesapp.MyParcelable;
+import com.ilesanmi.oluwole.popularmoviesapp.MoviesParcelable;
 import com.ilesanmi.oluwole.popularmoviesapp.R;
 import com.squareup.picasso.Picasso;
 
@@ -18,7 +18,7 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView mReleaseDate;
     private Bundle dataBundle;
     private Bundle osIntentBundle;
-    private MyParcelable parcelableFromMainActivity;
+    private MoviesParcelable parcelableFromMainActivity;
 
 
     @Override

@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 
 
-import com.ilesanmi.oluwole.popularmoviesapp.MyParcelable;
+import com.ilesanmi.oluwole.popularmoviesapp.MoviesParcelable;
 import com.ilesanmi.oluwole.popularmoviesapp.util.JsonUtil;
 
 
@@ -22,17 +22,17 @@ public class DbInsert {
     public static void insertIntoDatabase(String str,int databaseMoviesFlagToSeparateTopRatedFromPopular,Context context) throws JSONException {
 
         for(int i = 0; i < numberOfJsonObjInMoviesdbJson; i++){
-            MyParcelable myParcelable =  JsonUtil.parseMoviesToParcelableObject(str, i,databaseMoviesFlagToSeparateTopRatedFromPopular);
+            MoviesParcelable moviesParcelable =  JsonUtil.parseMoviesToParcelableObject(str, i,databaseMoviesFlagToSeparateTopRatedFromPopular);
 
 
             ContentValues contentValues = new ContentValues();
 
-            contentValues.put(MoviesContract.MoviesEntry.COLUMN_TITLE, myParcelable.getTitle());
-            contentValues.put(MoviesContract.MoviesEntry.COLUMN_MOVIE_POSTER, myParcelable.getPosterPath());
-            contentValues.put(MoviesContract.MoviesEntry.COLUMN_VOTE_AVERAGE, myParcelable.getVoteAverage());
-            contentValues.put(MoviesContract.MoviesEntry.COLUMN_PLOT_SYNOPSIS, myParcelable.getOverview());
-            contentValues.put(MoviesContract.MoviesEntry.COLUMN_RELEASE_DATE, myParcelable.getReleaseDate());
-            contentValues.put(MoviesContract.MoviesEntry.COLUMN_MOVIES_FLAG,  myParcelable.getFlag());
+            contentValues.put(MoviesContract.MoviesEntry.COLUMN_TITLE, moviesParcelable.getTitle());
+            contentValues.put(MoviesContract.MoviesEntry.COLUMN_MOVIE_POSTER, moviesParcelable.getPosterPath());
+            contentValues.put(MoviesContract.MoviesEntry.COLUMN_VOTE_AVERAGE, moviesParcelable.getVoteAverage());
+            contentValues.put(MoviesContract.MoviesEntry.COLUMN_PLOT_SYNOPSIS, moviesParcelable.getOverview());
+            contentValues.put(MoviesContract.MoviesEntry.COLUMN_RELEASE_DATE, moviesParcelable.getReleaseDate());
+            contentValues.put(MoviesContract.MoviesEntry.COLUMN_MOVIES_FLAG,  moviesParcelable.getFlag());
 
             context.getContentResolver().insert(MoviesContract.MoviesEntry.CONTENT_URI,contentValues);        }
 

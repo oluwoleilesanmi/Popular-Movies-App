@@ -9,7 +9,7 @@ import android.os.Parcelable;
  * Created by abayomi on 1/02/2018.
  */
 
-public class MyParcelable implements Parcelable {
+public class MoviesParcelable implements Parcelable {
 
     private String title;
     private String posterPath;
@@ -19,7 +19,7 @@ public class MyParcelable implements Parcelable {
     private Integer flag;
     private Bundle bundle = new Bundle();
 
-    public MyParcelable(){}
+    public MoviesParcelable(){}
 
     public String getTitle() {
         return title;
@@ -73,7 +73,7 @@ public class MyParcelable implements Parcelable {
 
 
 
-    private MyParcelable(Parcel in) {
+    private MoviesParcelable(Parcel in) {
         bundle = in.readBundle(getClass().getClassLoader());
     }
 
@@ -85,15 +85,15 @@ public class MyParcelable implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {dest.writeBundle(bundle);}
 
-    public static final Creator<MyParcelable> CREATOR = new Creator<MyParcelable>() {
+    public static final Creator<MoviesParcelable> CREATOR = new Creator<MoviesParcelable>() {
         @Override
-        public MyParcelable createFromParcel(Parcel in) {
-            return new MyParcelable(in);
+        public MoviesParcelable createFromParcel(Parcel in) {
+            return new MoviesParcelable(in);
         }
 
         @Override
-        public MyParcelable[] newArray(int size) {
-            return new MyParcelable[size];
+        public MoviesParcelable[] newArray(int size) {
+            return new MoviesParcelable[size];
         }
     };
     public void convertCursor(Cursor cursor){
